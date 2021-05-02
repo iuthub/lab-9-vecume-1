@@ -26,6 +26,12 @@ class PostsController extends Controller
         return view('admin.add', ["post" => $post]);
     }
 
+    public function like($id)
+    {
+        $post = $this->repo->like($id);
+        return response()->redirectToRoute("index");
+    }
+
     public function edit(Request $request)
     {
         $this->repo->update([

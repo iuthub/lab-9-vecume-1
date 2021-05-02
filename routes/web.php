@@ -21,6 +21,7 @@ Route::get('/', [PostsController::class, "index"])->name("index");
 Route::post('/post/add', [PostsController::class, "add"])->name("add");
 Route::get('/delete/{id}', [PostsController::class, "delete"])->name("delete");
 Route::post('/edit', [PostsController::class, "edit"])->name("edit");
+Route::get('/like/{id}', [PostsController::class, "like"])->name("like");
 
 Route::get('/admin/edit/{id}', [PostsController::class, "edit_view"])->name("admin/edit");
 
