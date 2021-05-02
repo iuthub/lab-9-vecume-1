@@ -7,10 +7,9 @@
 
   <title>Laravel</title>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- CSS only -->
   <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+  <link rel="stylesheet" href="{{ URL::to('css/app.css') }}">
 </head>
 
 <body>
@@ -18,6 +17,7 @@
   <div class="container">
     @yield('content')
   </div>
+  <script src="{{ URL::to('js/app.js') }}"></script>
 </body>
 
 </html>

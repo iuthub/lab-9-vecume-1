@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostsController;
+use App\Repositories\PostsRepository;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
@@ -14,30 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $posts = [
-        [
-            "id" => 1,
-            "title" => "How to be a good programmer?",
-            "content" => "You just should start coding and critical thinking, You also need to write something."
-        ],
-        [
-            "id" => 2,
-            "title" => "Great jokes",
-            "content" => "Write it write it dont simply sit dont waste my time"
-        ]
-        ];
-    return view('components.blog.posts', ["posts" => $posts]);
-});
+Route::get('/', [PostsController::class, "index"])->name("index");
 
-Route::get("/post", function () {
-    return view("post");
-});
 
-Route::get('/admin/create', function () {
-    return view('admin.create');
-});
 
-Route::get('/admin/edit/{id}', function () {
-    return view('admin.edit');
+Route::post('/post/add', [PostsController::class, "add"])->name("add");
+Route::get('/delete/{id}', [PostsController::class, "delete"])->name("delete");
+Route::post('/edit', [PostsController::class, "edit"])->name("edit");
+
+Route::get('/admin/edit/{id}', [PostsController::class, "edit_view"])->name("admin/edit");
+
+Route::get('/admin/add', function () {
+    return view('admin.add');
 });
