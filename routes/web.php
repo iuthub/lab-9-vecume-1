@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\PostsController;
-use App\Repositories\PostsRepository;
-use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
